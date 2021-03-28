@@ -59,7 +59,8 @@ export default class Logic {
 
   async sendXHR(method) {
     const xhr = new XMLHttpRequest();
-    const url = `http://localhost:7070/?method=${method}`;
+    // const url = `http://localhost:7070/?method=${method}`;
+    const url = `https://ahj-http-back.herokuapp.com?method=${method}`;
     xhr.open('GET', url, false);
     xhr.send();
     xhr.addEventListener('loadend', async () => {
