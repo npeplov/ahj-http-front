@@ -6,7 +6,6 @@ export default class Gui {
     this.data = document.querySelector('[data-id=data]');
     this.list = document.querySelector('.list');
     this.modal = document.querySelector('.modal');
-    this.modalButtons = document.querySelectorAll('.modal button');
     this.widget = document.querySelector('.ticketswidget');
   }
 
@@ -14,35 +13,39 @@ export default class Gui {
     return `
     <div class="row" data-id="${id}">
       <div data-id="status">${status}</div>
-      <div data-id="title">${title}</div>
-      <div data-id="data">${data}</div>
-      <button data-id="edit">edit</button>
-      <button data-id="del">del</button>
+      <div data-id="title" class="title">${title}</div>
+      <div data-id="data" class="date">${data}</div>
+      <div><button data-id="edit">edit</button></div>
+      <div><button data-id="del">del</button></div>
     </div>`;
   }
 
-  editTemplate(header, title, description) {
+  editTemplate(header, title, description, name, id) {
     return `
+    <form name=${name} data-idfor="${id}">
       <h3>${header}</h3>
-      Краткое описание <input type="text" data-id="title" value="${title}"><br>
-      Подробное описание <input type="text" data-id="description" value="${description}"><br>
-      <button>Отмена</button>
-      <button>Ок</button>`;
+      Краткое описание <input type="text" name="title" value="${title}"><br>
+      Подробное описание <input type="text" name="description" value="${description}"><br>
+      <button type="reset">Отмена</button>
+      <button type="submit">Ок</button>
+    </form>
+      `;
   }
 
-  descriptionTemplate(title, description) {
+  descriptionTemplate(description) {
     return `
-    ${title}
     <p>${description}</p>
     `;
   }
 
-  delTemplate() {
+  delTemplate(id) {
     return `
-    <h3>Удалить тикет</h3>
-    <p>Are you sure? It's can't be cancelled.</p>
-    <button>Cancel</button>
-    <button data-id="del">Ok</button>
+    <form name="del" data-idfor=${id}>
+      <h3>Удалить тикет</h3>
+      <p>Are you sure? It's can't be cancelled.</p>
+      <button type="reset">Отмена</button>
+      <button type="submit">Ок</button>
+    </form>
     `;
   }
 }

@@ -8,6 +8,7 @@ module.exports = {
   devtool: 'inline-source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: './[name][ext]',
   },
   devServer: {
     historyApiFallback: true,
@@ -31,6 +32,10 @@ module.exports = {
             loader: 'html-loader',
           },
         ],
+      },
+      {
+        test: /\.(jpg|gif|png|ico)$/,
+        type: 'asset/resource',
       },
       {
         test: /\.css$/,

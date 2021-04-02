@@ -1,20 +1,49 @@
+html {
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-weight: 400;
+}
+
 .ticketswidget {
   padding: 20px;
-  width: 70%;
+  width: 750px;
+  font-weight: 400;
+}
+
+.ticketswidget p {
+  font-weight: 300;
 }
 
 .row {
-  display: flex;
+  display: table-row;
   border: 1px solid #495057;
+  vertical-align: baseline;
 }
 
 .row div {
+  display: table-cell;
   padding: 20px;
-  max-width: 200px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #495057;
+}
+
+.row div:nth-child(n + 4) {
+  padding: 10px;
+}
+
+.row .title {
+  width: 380px;
+}
+
+.row .date {
+  width: 215px;
 }
 
 .row button {
-  margin: 20px;
+  height: 100%;
 }
 
 .hidden {
@@ -25,44 +54,9 @@
   border: 1px solid #495057;
   width: 400px;
   padding: 30px 47px;
+  margin: 0 20px;
 }
 
 .modal input {
   margin: 5px 0;
-}
-
-.input {
-  display: inline-block;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #495057;
-  border: 1px solid #ced4da;
-  border-radius: .25rem;
-  outline: none;
-}
-
-.input.valid {
-  border: 1px solid green;
-}
-
-.input.error {
-  border: 1px solid red;
-}
-
-.btn {
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  user-select: none;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: .25rem;
-  border: 1px solid #ced4da;
-}
-
-.form-control {
-  position: relative;
-  margin-bottom: 5px;
 }
